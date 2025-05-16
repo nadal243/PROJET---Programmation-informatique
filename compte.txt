@@ -1,0 +1,7 @@
+,0.0
+nadal,9010.0
+dora,0.0
+loic,10.0
+olivier,1005.0
+melanie,19000.0
+lea,0.0
