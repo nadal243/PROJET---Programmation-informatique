@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#v2
-#2.1 Bug Restart > Suppression des NappeHydro
-#2.2 Bug Navigation OP
-#afficher_classement_final(budgetOM)  # Si budgetOM est le budget fina
 """
 Projet : sujet 11  ->  Eco guerrir
 Auteur : NGAKI MUPATI NADAL
@@ -164,13 +158,9 @@ budgets_op = []
 # FONCTIONS
 # -----------------------------------------------------------------------------------------------------------
 
-#_______________________________________________________________________________________________
-
-#                                    ETAPE 5 (Séance 8) :
-#_______________________________________________________________________________________________
 
 #-----------------------------------------------------------------------------------------------------------    
-# 5.1 Cheat Code 
+# Cheat Code 
 #-----------------------------------------------------------------------------------------------------------
 
 def afficher_tutoriel():
@@ -260,13 +250,8 @@ def lancerSimulation():
     depart()                 # pour declencher le depart en appuyant sur le bouton respectif
     fen_princ.deiconify()    # pour lancer la simulation en appuyant sur le bouton respectif
 
-#_______________________________________________________________________________________________________________
-
-#                              ETAPE 4 (SEANCE 7)
-#_______________________________________________________________________________________________________________
-
 #------------------------------------------------------------------------------------------------
-# 4.1 Affichage de la durée de la partie
+# Affichage de la durée de la partie
 #------------------------------------------------------------------------------------------------
 
 def miseAJourDuree():
@@ -279,7 +264,7 @@ def miseAJourDuree():
         fen_princ.after(1000, miseAJourDuree)  # Rappelle la fonction après 1 seconde
 
 #-------------------------------------------------------------------------------------------------        
-#  4.2   Sauvegarde des Budgets & Record 
+# Sauvegarde des Budgets & Record 
 #-------------------------------------------------------------------------------------------------
 
 def charger_record():
@@ -343,7 +328,7 @@ def afficher_budget_et_record():
     lblBudgetRecord.config(text=f"Record : {record if record is not None else 'Aucun'} {nom_utilisateur}")
 
 #--------------------------------------------------------------------------------
-# 4.3 Affichage du Classement 
+# Affichage du Classement 
 #--------------------------------------------------------------------------------
 
 def afficher_classement_final(budget_final):
@@ -363,9 +348,9 @@ def afficher_classement_final(budget_final):
 
     lblclassement.config(text=message)  # Mettre à jour l'affichage 
     
-#--------------------------------------------------------------------------------
-# BONUS SEANCE 7
-#--------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------
+# saisi des noms et affichage du graphique de l'évolution du budget en fonction du temps
+#----------------------------------------------------------------------------------------
 
 def utilisateur():
     """ fonction permettant de saisir le nom à chaque debut de partie"""
@@ -554,12 +539,6 @@ def creationEntiteMobile(pTypeEntiteMobile):
         gestionCanvas.tag_raise(entitesMobiles[-1])
     
     typesEntiteMobile.append(pTypeEntiteMobile)
-    # if pTypeEntiteMobile == NAVIRE_PIRATE:
-    #     directions = [
-    #     (VIT_MAX_NAVIRE_PIRATE, 0), (-VIT_MAX_NAVIRE_PIRATE, 0), 
-    #     (0, VIT_MAX_NAVIRE_PIRATE), (0, -VIT_MAX_NAVIRE_PIRATE)]
-    #     vitX[-1], vitY[-1] = random.choice(directions)
-
 
 """
 Obj: Démarrage des déplacements des entités mobiles
@@ -583,9 +562,6 @@ def gestion_deplacements():
 
     global etat_actif_depl_anim, dde_arret,dureeSimulation
     global dureePP,dureeZP,imgCarteLigne,gestionCanvas #,noEntiteMobile
-    
-    # if typesEntiteMobile[noEntiteMobile] == NAVIRE_PIRATE:
-    #     chgtDirectionOP(noEntiteMobile)
     
 # pour arreter toutes les entites mobiles
     if (etat_actif_depl_anim):
@@ -690,11 +666,6 @@ Param :
 def deplacement(pNoEntiteMobile):
     global entitesMobiles, vitX, vitY,coord_iEntitesMobiles,typesEntiteMobile,etats_chargement,budgetOM,budgetOP
     
-    
-    #2.2 Correction Naviguation OP ++
-    # if typesEntiteMobile[pNoEntiteMobile] == NAVIRE_PIRATE:
-    #     if random.random() < 0.1:  # 10% de chance de changer de direction à chaque déplacement
-    #         chgtDirectionOP(pNoEntiteMobile)
     if typesEntiteMobile[pNoEntiteMobile] == NAVIRE_PIRATE:
         if vitX[pNoEntiteMobile] == 0 and vitY[pNoEntiteMobile] == 0:  # S'il est immobile, forcer un changement
             chgtDirectionOP(pNoEntiteMobile)
@@ -728,13 +699,6 @@ def deplacement(pNoEntiteMobile):
     
     #identification du type de décor présent sur cette cellule
     typeCarte=(matValCarteN1[coord_jEntiteMobile_matCarte][coord_iEntiteMobile_matCarte])
-    
-    
-    #2.2 Correction Naviguation OP ++
-    #Relancer les navires ennemis
-    #if (typesEntiteMobile[pNoEntiteMobile]!=TYPE_ORGA_MARITIME):
-    #    chgtDirectionOP(pNoEntiteMobile)
-    #2.2 Correction Naviguation OP--
     
     if (typeCarte>=ZT):#Cas de collision avec des zones non naviguables
         #Repositionnement du navire
@@ -889,9 +853,7 @@ def depart():
             vitY.pop(-1)
             gestionCanvas.delete(entitesMobiles[-1])
             entitesMobiles.pop(-1)
-            
-        
-
+         
         #2.1 Supression des Zones Nappes Hydro--
         #Repositionnement aux valeurs initiales        
         for noEntiteMobile in range(0,len(entitesMobiles)):  
@@ -953,13 +915,6 @@ def VictoireDefaite():
         afficher_classement_final(budgetOM)  # Si budgetOM est le budget final
         afficher_graphe_final()
         
-    # elif budgetOP<0:    
-    #     arret()
-    #     lblMessage.config(text="Victoire",fg='#0f0')
-    #     chrono_actif = False  # Arrêter le chrono
-    #     afficher_classement_final(budgetOM)  # Si budgetOM est le budget final
-    #     afficher_graphe_final()
-        
     elif budgetOM<0:    
         arret()
         lblMessage.config(text="Défaite",fg='#f00')
@@ -1018,11 +973,6 @@ def CreationImagesCarte():
             gestionCanvas.tag_lower(imgCarteLigne[-1])#v0.5
         matImgCarteN1.append(imgCarteLigne)
         
-#Déterminer les zones naviguables autours de la position actuelle
-#Args - pLaby : Matrice de la zone
-#Args - pValsObstacles : Liste des valeurs considérées comme non naviguables
-#Args - pX,pY : coordonnées de la zone auour l'analyse sera effectuée 
-#Retour - Liste des voisins
 def voisinsDisponibles(pLaby,pValsDisponibles,pX,pY):
 
     voisinsDisponibles=[]
@@ -1086,7 +1036,7 @@ for i in range(nbNavireOrgaMaritime):
     creationEntiteMobile(TYPE_ORGA_MARITIME)
     
 #creation de mon navire pirate 
-nbNAVIREPIRATE=5         # je crée 5 navires pirates pour augmenter l'efficacité
+nbNAVIREPIRATE=5        
 for i in range(nbNAVIREPIRATE):
     creationEntiteMobile(NAVIRE_PIRATE)
 
@@ -1193,6 +1143,3 @@ root.mainloop()
 
 #Rafraichissement de la fenêtre et de tout son contenu
 fen_princ.mainloop()
-
-
-
