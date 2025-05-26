@@ -4,6 +4,25 @@
   <meta charset="UTF-8">
   <title>Mon Portfolio</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Highlight.js pour coloration syntaxique -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <style>
+    pre {
+      background: #f0f0f0;
+      padding: 1em;
+      overflow-x: auto;
+      border-radius: 8px;
+    }
+    details {
+      margin-top: 1em;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,19 +36,44 @@
       <li><a href="#">Projet 1 : jeu vidéo : Eco-guerrier</a></li>
       <li>
         <strong>Projet 2 : simulateur Banque</strong><br>
-        <p>Une application en Python (interface Tkinter) permettant à un utilisateur de :</p>
+        <p>Une application en Python avec interface graphique Tkinter permettant :</p>
         <ul>
-          <li>Créer un compte bancaire</li>
-          <li>Consulter le solde de son compte</li>
-          <li>Faire des dépôts et des retraits</li>
-          <li>Effectuer des transferts entre comptes</li>
+          <li>la création de comptes bancaires</li>
+          <li>la consultation de soldes</li>
+          <li>le dépôt et le retrait d'argent</li>
+          <li>le transfert d'argent entre comptes</li>
         </ul>
+
+        <p><strong>Code source :</strong></p>
+        <details>
+          <summary>Afficher/masquer le script complet</summary>
+          <pre><code class="language-python">
+<!-- ici on insère ton code Python brut, sans indentation cassée -->
+import tkinter as tk
+
+FICHIER = "compte.txt"
+
+def lire_compte():
+    comptes = []
+    try:
+        with open(FICHIER, 'r') as f:
+            for ligne in f:
+                ligne = ligne.strip()
+                if ligne:
+                    nom, solde = ligne.split(',')
+                    comptes.append((nom, float(solde)))
+    except FileNotFoundError:
+        pass
+    return comptes
+
+# ... (tu peux coller ici tout le reste de ton script Python)
+          </code></pre>
+        </details>
+
         <p>
           🔽 <a href="PROJET1_BANQUE.py" download>Télécharger le script Python</a><br>
           🔗 <a href="https://github.com/tonpseudo/banque-simulateur" target="_blank">Voir le projet sur GitHub</a>
         </p>
-        <!-- Si tu as une capture d’écran du projet, place le fichier image dans le dossier et décommente la ligne ci-dessous -->
-        <!-- <img src="capture_banque.png" alt="Capture d'écran de l'application Banque" style="max-width: 100%; height: auto;"> -->
       </li>
     </ul>
   </section>
