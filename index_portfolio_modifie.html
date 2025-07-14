@@ -1783,25 +1783,23 @@ if __name__ == "__main__":
   <details>
     <summary>Afficher/masquer le script complet</summary>
     <pre><code class="language-python">
-&quot;&quot;&quot;
 Created on Mon Jun  9 12:30:45 2025
 @author: NGAKI MUPATI NADAL
-&quot;&quot;&quot;
 
-import tkinter as tk  # Pour créer l&#x27;interface graphique
-import cv2  # OpenCV pour la capture vidéo et le traitement d&#x27;image
+import tkinter as tk  # Pour créer l'interface graphique
+import cv2  # OpenCV pour la capture vidéo et le traitement d'image
 # import face_recognition  # (Désactivé ici, pas utilisé dans cette version)
 from PIL import Image, ImageTk  # Pour afficher les images OpenCV dans Tkinter
 from tkinter import messagebox  # Pour afficher des messages pop-up
-import time  # Pour mesurer le temps écoulé (utile pour l&#x27;enregistrement)
+import time  # Pour mesurer le temps écoulé (utile pour l'enregistrement)
 from playsound import playsound  # Pour jouer un fichier audio (alerte sonore)
 
 
 class SurveillanceApp:
     def __init__(self, root):
         self.root = root  
-        self.root.title(&quot;Système de vidéosurveillance intelligent&quot;) 
-        self.root.geometry(&quot;800x600&quot;) 
+        self.root.title("Système de vidéosurveillance intelligent") 
+        self.root.geometry("800x600") 
 
         # Initialisation des variables de contrôle
         self.video_capture = None         # Objet pour capturer la vidéo (webcam)
@@ -1816,15 +1814,15 @@ class SurveillanceApp:
         self.label_video.pack(pady=10)
 
         # Bouton pour démarrer la caméra
-        self.btn_start = tk.Button(self.root, text=&quot;Démarrer&quot;, command=self.start_camera)
+        self.btn_start = tk.Button(self.root, text="Démarrer", command=self.start_camera)
         self.btn_start.pack(side=tk.LEFT, padx=20)
 
         # Bouton pour arrêter la caméra
-        self.btn_stop = tk.Button(self.root, text=&quot;Arrêter&quot;, command=self.stop_camera, state=tk.DISABLED)
+        self.btn_stop = tk.Button(self.root, text="Arrêter", command=self.stop_camera, state=tk.DISABLED)
         self.btn_stop.pack(side=tk.LEFT, padx=20)
 
-        # Bouton pour quitter l&#x27;application
-        self.btn_quit = tk.Button(self.root, text=&quot;Quitter&quot;, command=self.quit_app)
+        # Bouton pour quitter l'application
+        self.btn_quit = tk.Button(self.root, text="Quitter", command=self.quit_app)
         self.btn_quit.pack(side=tk.RIGHT, padx=20)
 
     def start_camera(self):
@@ -1840,7 +1838,7 @@ class SurveillanceApp:
         if self.running:
             ret, frame = self.video_capture.read()  # Capture une image
             if ret:
-                # Convertit l&#x27;image couleur en niveaux de gris
+                # Convertit l'image couleur en niveaux de gris
                 frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
                 # Applique un flou pour réduire les petits mouvements (bruit)
                 frame_gray = cv2.GaussianBlur(frame_gray, (21, 21), 0)
@@ -1849,7 +1847,7 @@ class SurveillanceApp:
                     # Première image, on la garde pour comparer plus tard
                     self.previous_frame = frame_gray
                 else:
-                    # Compare l&#x27;image actuelle avec la précédente
+                    # Compare l'image actuelle avec la précédente
                     diff = cv2.absdiff(self.previous_frame, frame_gray)
                     _, thresh = cv2.threshold(diff, 25, 255, cv2.THRESH_BINARY)  # Binarise la différence
                     motion_level = cv2.countNonZero(thresh)  # Compte les pixels blancs (changements)
