@@ -1,7 +1,7 @@
 # PROJET---PROGRAMMATION-PYTHON-
 
-🎓 Étudiant en 1ère année de sciences de l'ingénieur  
-💻 Passionné de programmation, surtout en Python  
-🚀 Objectif : devenir ingénieur en informatique embarquée
+🎓 Étudiant en 2ème année de sciences de l'ingénieur  
+💻 Passionné de programmation, l'informatique et l'électronique 
+🚀 Objectif : devenir ingénieur en informatique et electronique embarqué.
 
-This repository contains my exercises and my programming projects in Python
+
