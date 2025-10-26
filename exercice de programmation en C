@@ -11,11 +11,11 @@ int main() {
 
     // pour la gestion du nombre positif
     if (n < 0) {
-        printf("Erreur : le nombre doit être positif.\n");
+        printf("Erreur : le nombre doit Ãªtre positif.\n");
         return 1;
     }
 
-    // 2. Conversion chiffre en chaine de caractere par chiffre (stockage à l'envers)
+    // 2. Conversion chiffre en chaine de caractere par chiffre (stockage Ã  l'envers)
     int temp = n;
     while (temp > 0) {
         int chiffre = temp % 10;
@@ -24,19 +24,19 @@ int main() {
         i++;
     }
 
-    chaine[i] = '\0'; // Terminaison de la chaîne
+    chaine[i] = '\0'; // Terminaison de la chaÃ®ne
 
     // 3. Inversion du tableau pour corriger l'ordre
-    int debut = 0;          // Commence au début de la chaîne
-    int fin = i - 1;        // Commence à la fin de la chaîne
+    int debut = 0;          // Commence au dÃ©but de la chaÃ®ne
+    int fin = i - 1;        // Commence Ã  la fin de la chaÃ®ne
 
     while (debut < fin) {
-        // Échanger les caractères aux positions 'debut' et 'fin'
+        // Ã‰changer les caractÃ¨res aux positions 'debut' et 'fin'
         char temp = chaine[debut];
         chaine[debut] = chaine[fin];
         chaine[fin] = temp;
 
-        // Avancer le début et reculer la fin
+        // Avancer le dÃ©but et reculer la fin
         debut++;
         fin--;
         }
