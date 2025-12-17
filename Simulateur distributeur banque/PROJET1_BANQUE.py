@@ -286,3 +286,4 @@ btn_quitter = tk.Button(frame_boutons, text="6. Quitter", width=30, command=root
 btn_quitter.grid(row=4, column=0, pady=10)
 
 root.mainloop()
+
