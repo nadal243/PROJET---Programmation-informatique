@@ -358,7 +358,7 @@ Fermeture de la fenêtre
 
 ---
 
-## 🔒 Sécurité et Considérations
+##  Sécurité et Considérations
 
 ### Points Faibles
 
@@ -419,7 +419,7 @@ Fermeture de la fenêtre
 
 ---
 
-## 📋 Checklist de Test
+##  Checklist de Test
 
 - [ ] Créer un compte avec un nom valide
 - [ ] Tenter de créer deux comptes avec le même nom
