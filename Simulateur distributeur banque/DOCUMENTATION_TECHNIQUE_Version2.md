@@ -11,13 +11,13 @@
 
 ---
 
-## 🎯 Description du Projet
+## Description du Projet
 
 Ce projet implémente un simulateur de distributeur bancaire avec une interface graphique basée sur tkinter. Il permet de gérer des comptes bancaires, effectuer des opérations courantes (dépôt, retrait, transfert) et consulter les soldes.
 
 ---
 
-## 🏗️ Architecture Générale
+##  Architecture Générale
 
 ### Structure du Code
 
@@ -59,7 +59,7 @@ Charlie,500.75
 
 ---
 
-## 🔧 Fonctions Principales
+##  Fonctions Principales
 
 ### 1. **Fonctions de Lecture/Écriture**
 
@@ -216,7 +216,7 @@ def ecrire_compte(comptes):
 
 ---
 
-## 🎨 Interface Graphique Principale
+##  Interface Graphique Principale
 
 ### Configuration de la Fenêtre Principale
 
@@ -265,7 +265,7 @@ root.configure(bg="#DDEEFF")
 
 ---
 
-## 🐛 Bugs et Limitations Identifiés
+##  Bugs et Limitations Identifiés
 
 ### 1. **Chevauchement des boutons 4 et 5**
 ```python
@@ -300,7 +300,7 @@ Si le disque est plein ou les permissions insuffisantes, `ecrire_compte()` plant
 
 ---
 
-## 📊 Flux de Données
+##  Flux de Données
 
 ### Création de Compte
 
@@ -378,7 +378,7 @@ Fermeture de la fenêtre
 
 ---
 
-## 📝 Conventions de Code
+##  Conventions de Code
 
 ### Nommage
 - **Variables** : snake_case (`entre_nom`, `montant_invalide`)
@@ -397,7 +397,7 @@ Fermeture de la fenêtre
 
 ---
 
-## 🚀 Améliorations Futures Suggérées
+##  Améliorations Futures Suggérées
 
 ### Court Terme
 1. ✅ Corriger le chevauchement des boutons 4 et 5
@@ -435,12 +435,12 @@ Fermeture de la fenêtre
 
 ---
 
-## 👨‍💻 Auteur et Maintenance
+##  Auteur et Maintenance
 
 **Auteur Original** : NADAL NGAKI MUPATI  
 **Date** : 10 mai 2025
 
-Projet personel 
+Projet personnel 
 
 Pour toute question ou contribution, veuillez contacter l'auteur.
 
