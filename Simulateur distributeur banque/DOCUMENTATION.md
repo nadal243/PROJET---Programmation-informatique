@@ -1,7 +1,7 @@
 
 # Documentation Technique - Simulateur de Distributeur Bancaire
 
-## 📋 Informations Générales
+##  Informations Générales
 
 **Projet** : Simulateur de Distributeur Bancaire (DAB)  
 **Auteur** : NADAL NGAKI MUPATI  
@@ -37,7 +37,7 @@ Ce projet implémente un simulateur de distributeur bancaire avec une interface 
 
 ---
 
-## 📁 Stockage des Données
+##  Stockage des Données
 
 ### Fichier de Persistence
 
