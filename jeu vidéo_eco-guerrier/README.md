@@ -18,7 +18,7 @@
 ## Vue d'ensemble du projet
 
 ### Objectif
-**"OCEAN WAR L1 SPI"** est un jeu de stratégie écologique en temps réel où deux organismes (OMI et OPEP) s'affrontent dans un environnement marin. Le joueur contrôle l'OMI (Organisation Maritime Internationale) pour combattre la pollution pétrolière et protéger les écosystèmes marins.
+**"OCEAN WAR "** est un jeu de stratégie écologique en temps réel où deux organismes (OMI et OPEP) s'affrontent dans un environnement marin. Le joueur contrôle l'OMI (Organisation Maritime Internationale) pour combattre la pollution pétrolière et protéger les écosystèmes marins.
 
 ### Thématique
 - **OMI (Maritime)** : Organisation de protection de l'environnement marin
