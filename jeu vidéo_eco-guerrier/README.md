@@ -1,6 +1,6 @@
 # Documentation Technique - Jeu Vidéo Eco-Guerrier
 
-## 📋 Table des Matières
+## Table des Matières
 
 1. [Vue d'ensemble du projet](#vue-densemble-du-projet)
 2. [Architecture globale](#architecture-globale)
