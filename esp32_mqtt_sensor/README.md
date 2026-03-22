@@ -23,6 +23,5 @@ Projet personnel d'initiation à l'IoT avec ESP32.
 - PubSubClient.h
 
 ## Améliorations possibles
-- ajouter un vrai capteur
 - afficher les données sur Grafana / Node-RED
 - stocker les mesures sur un serveur local
