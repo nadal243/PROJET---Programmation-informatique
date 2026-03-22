@@ -261,7 +261,7 @@ root.configure(bg="#DDEEFF")
 | 5 | Faire un transfert | faire_un_transfert() | 3 |
 | 6 | Quitter | root.destroy() | 4 |
 
-⚠️ **Remarque** : Les boutons 4 et 5 occupent la même ligne (row=3), ce qui peut créer un chevauchement visuel.
+**Remarque** : Les boutons 4 et 5 occupent la même ligne (row=3), ce qui peut créer un chevauchement visuel.
 
 ---
 
