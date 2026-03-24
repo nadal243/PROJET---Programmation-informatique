@@ -10,7 +10,7 @@ Projet personnel d'initiation à l'IoT avec ESP32.
 
 ## Ce que fait le programme
 - se connecte au WiFi
-- génère des valeurs simulées de température et d'humidité
+- collecte les données en temps réel de la température et de l'humidité
 - publie les données au format JSON sur un topic MQTT
 - affiche les informations dans le moniteur série
 
