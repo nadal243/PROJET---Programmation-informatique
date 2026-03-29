@@ -29,8 +29,6 @@ Mon parcours m'a permis de réaliser divers projets sur des plateformes variées
 Pour chaque répertoire, vous trouverez :
 1. Une description des objectifs du projet.
 2. La liste du matériel utilisé.
-3. Les schémas de câblage ou fichiers de conception.
-4. Les instructions de compilation et de déploiement du code.
 
 ---
 
