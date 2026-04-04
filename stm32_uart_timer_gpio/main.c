@@ -4,16 +4,16 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Projet de dÈmarrage - STM32 GPIO / Timer / UART
+  * @brief          : Projet de d√©marrage - STM32 GPIO / Timer / UART
   *
-  * Ce que fait cette dÈmo :
+  * Ce que fait cette d√©mo :
   * - Fait clignoter une LED
-  * - Envoie des messages de dÈbogage via UART
-  * - Utilise une interruption de timer comme t‚che pÈriodique
+  * - Envoie des messages de d√©bogage via UART
+  * - Utilise une interruption de timer comme t√¢che p√©riodique
   *
   * Notes :
-  * - La structure du projet est gÈnÈralement gÈnÈrÈe avec STM32CubeIDE.
-  * - Ce fichier suppose que les pilotes HAL sont dÈj‡ configurÈs.
+  * - La structure du projet est g√©n√©ralement g√©n√©r√©e avec STM32CubeIDE.
+  * - Ce fichier suppose que les pilotes HAL sont d√©j√† configur√©s.
   *
   ******************************************************************************
   */
@@ -23,64 +23,64 @@
 #include <stdio.h>
 #include <string.h>
 
-/* Variables privÈes */
+/* Variables priv√©es */
 UART_HandleTypeDef huart2; // Structure de configuration pour l'UART2
 TIM_HandleTypeDef htim2;   // Structure de configuration pour le Timer 2
 
 /* USER CODE BEGIN PV */
-volatile uint32_t timer_ticks = 0; // Compteur d'interruptions (volatile car modifiÈ dans une ISR)
-char tx_buffer[128];               // Tampon pour prÈparer les messages texte
+volatile uint32_t timer_ticks = 0; // Compteur d'interruptions (volatile car modifi√© dans une ISR)
+char tx_buffer[128];               // Tampon pour pr√©parer les messages texte
 /* USER CODE END PV */
 
-/* Prototypes des fonctions privÈes*/
-void SystemClock_Config(void);      // Configuration de l'horloge systËme
-static void MX_GPIO_Init(void);     // Initialisation des ports d'entrÈes/sorties
-static void MX_USART2_UART_Init(void); // Initialisation de la communication sÈrie
+/* Prototypes des fonctions priv√©es*/
+void SystemClock_Config(void);      // Configuration de l'horloge syst√®me
+static void MX_GPIO_Init(void);     // Initialisation des ports d'entr√©es/sorties
+static void MX_USART2_UART_Init(void); // Initialisation de la communication s√©rie
 static void MX_TIM2_Init(void);     // Initialisation du Timer 2
 
 /* Redirection de printf vers l'UART */
 int __io_putchar(int ch)
 {
-  // Envoie un caractËre via UART2 avec un dÈlai d'attente maximum
+  // Envoie un caract√®re via UART2 avec un d√©lai d'attente maximum
   HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
   return ch;
 }
 
-/* Fonction appelÈe ‡ chaque fois que le Timer 2 dÈborde (Interruption) */
+/* Fonction appel√©e √† chaque fois que le Timer 2 d√©borde (Interruption) */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-  if (htim->Instance == TIM2) // VÈrifie que c'est bien l'interruption du Timer 2
+  if (htim->Instance == TIM2) // V√©rifie que c'est bien l'interruption du Timer 2
   {
-    timer_ticks++; // IncrÈmente le compteur de ticks
-    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // Alterne l'Ètat de la LED
+    timer_ticks++; // Incr√©mente le compteur de ticks
+    HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5); // Alterne l'√©tat de la LED
   }
 }
 
 int main(void)
 {
-  HAL_Init();              // Initialise la bibliothËque HAL
-  SystemClock_Config();    // Configure les horloges du systËme
+  HAL_Init();              // Initialise la biblioth√®que HAL
+  SystemClock_Config();    // Configure les horloges du syst√®me
 
   MX_GPIO_Init();          // Initialise les GPIO (LED)
   MX_USART2_UART_Init();   // Initialise l'UART2 (Console)
   MX_TIM2_Init();          // Initialise le Timer 2
 
-  // DÈmarre le Timer 2 en mode interruption
+  // D√©marre le Timer 2 en mode interruption
   HAL_TIM_Base_Start_IT(&htim2);
 
-  printf("DÈmo STM32 dÈmarrÈe\r\n");
+  printf("D√©mo STM32 d√©marr√©e\r\n");
   printf("Exemple GPIO + Timer + UART\r\n");
 
   uint32_t last_print = 0; // Variable pour suivre le temps du dernier affichage
 
   while (1) // Boucle principale (infini)
   {
-    // VÈrifie si 1000 ms se sont ÈcoulÈes
+    // V√©rifie si 1000 ms se sont √©coul√©es
     if ((HAL_GetTick() - last_print) >= 1000)
     {
-      last_print = HAL_GetTick(); // Met ‡ jour le temps du dernier affichage
+      last_print = HAL_GetTick(); // Met √† jour le temps du dernier affichage
 
-      // PrÈpare une chaÓne de caractËres formatÈe
+      // Pr√©pare une cha√Æne de caract√®res format√©e
       snprintf(tx_buffer, sizeof(tx_buffer),
                "Uptime: %lu ms | Ticks Timer: %lu\r\n",
                HAL_GetTick(), timer_ticks);
@@ -98,23 +98,23 @@ int main(void)
   */
 static void MX_TIM2_Init(void)
 {
-  __HAL_RCC_TIM2_CLK_ENABLE(); // Active l'horloge pour le pÈriphÈrique TIM2
+  __HAL_RCC_TIM2_CLK_ENABLE(); // Active l'horloge pour le p√©riph√©rique TIM2
 
   htim2.Instance = TIM2;
-  // Exemple pour une horloge ‡ 16 MHz -> donne une horloge de timer ‡ 1 kHz
+  // Exemple pour une horloge √† 16 MHz -> donne une horloge de timer √† 1 kHz
   htim2.Init.Prescaler = 16000 - 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP; // Compte vers le haut
-  htim2.Init.Period = 1000 - 1;        // PÈriode de 1 seconde (1000 ms)
+  htim2.Init.Period = 1000 - 1;        // P√©riode de 1 seconde (1000 ms)
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
 
   // Initialise la base de temps
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
-    Error_Handler(); // Appelle le gestionnaire d'erreur en cas d'Èchec
+    Error_Handler(); // Appelle le gestionnaire d'erreur en cas d'√©chec
   }
 
-  // Configure la prioritÈ et active l'interruption du Timer 2 dans le contrÙleur NVIC
+  // Configure la priorit√© et active l'interruption du Timer 2 dans le contr√¥leur NVIC
   HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(TIM2_IRQn);
 }
@@ -128,14 +128,14 @@ static void MX_USART2_UART_Init(void)
 
   huart2.Instance = USART2;
   huart2.Init.BaudRate = 115200;               // Vitesse de 115200 bits/s
-  huart2.Init.WordLength = UART_WORDLENGTH_8B; // 8 bits de donnÈes
+  huart2.Init.WordLength = UART_WORDLENGTH_8B; // 8 bits de donn√©es
   huart2.Init.StopBits = UART_STOPBITS_1;       // 1 bit de stop
-  huart2.Init.Parity = UART_PARITY_NONE;         // Pas de paritÈ
-  huart2.Init.Mode = UART_MODE_TX_RX;          // Mode Èmission et rÈception
-  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;    // Pas de contrÙle de flux matÈriel
+  huart2.Init.Parity = UART_PARITY_NONE;         // Pas de parit√©
+  huart2.Init.Mode = UART_MODE_TX_RX;          // Mode √©mission et r√©ception
+  huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;    // Pas de contr√¥le de flux mat√©riel
   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
 
-  // Initialise l'UART avec les paramËtres ci-dessus
+  // Initialise l'UART avec les param√®tres ci-dessus
   if (HAL_UART_Init(&huart2) != HAL_OK)
   {
     Error_Handler();
@@ -151,28 +151,28 @@ static void MX_GPIO_Init(void)
 
   __HAL_RCC_GPIOA_CLK_ENABLE(); // Active l'horloge pour le port A
 
-  // Met la broche ‡ 0 (RESET) par dÈfaut
+  // Met la broche √† 0 (RESET) par d√©faut
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
 
   // Configuration de la broche PA5 (LED)
-  GPIO_InitStruct.Pin = GPIO_PIN_5;            // Broche numÈro 5
+  GPIO_InitStruct.Pin = GPIO_PIN_5;            // Broche num√©ro 5
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;  // Mode Sortie Push-Pull
-  GPIO_InitStruct.Pull = GPIO_NOPULL;            // Pas de rÈsistance de tirage
+  GPIO_InitStruct.Pull = GPIO_NOPULL;            // Pas de r√©sistance de tirage
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW; // Vitesse de commutation faible
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);       // Applique la configuration
 }
 
-/* Emplacement vide : la config d'horloge rÈelle est normalement gÈnÈrÈe par CubeIDE */
+/* Emplacement vide : la config d'horloge r√©elle est normalement g√©n√©r√©e par CubeIDE */
 void SystemClock_Config(void)
 {
-  /* Gardez ici la config gÈnÈrÈe pour votre carte spÈcifique */
+  /* ici, c'est la config g√©n√©r√©e pour la carte sp√©cifique */
 }
 
-/* Gestionnaire d'erreur en cas de problËme d'initialisation */
+/* Gestionnaire d'erreur en cas de probl√®me d'initialisation */
 void Error_Handler(void)
 {
-  __disable_irq(); // DÈsactive toutes les interruptions
-  while (1)            // Boucle infinie pour bloquer le systËme
+  __disable_irq(); // D√©sactive toutes les interruptions
+  while (1)            // Boucle infinie pour bloquer le syst√®me
   {
   }
 }
