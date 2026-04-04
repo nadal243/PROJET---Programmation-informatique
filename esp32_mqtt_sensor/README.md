@@ -16,7 +16,7 @@ Projet personnel d'initiation à l'IoT avec ESP32.
 
 ## Matériel possible
 - ESP32 DevKit
-- capteur DHT22 ou BME280 (optionnel pour version réelle)
+- capteur DHT22 ou BME280 
 
 ## Bibliothèques
 - WiFi.h
