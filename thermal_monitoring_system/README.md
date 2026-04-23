@@ -1,21 +1,5 @@
 # Système de Surveillance Thermique - Documentation Technique
 
-## Table des matières
-
-1. [Vue d'ensemble](#vue-densemble)
-2. [Architecture du système](#architecture-du-système)
-3. [Composants matériels](#composants-matériels)
-4. [Structure du code](#structure-du-code)
-5. [Mode de fonctionnement](#mode-de-fonctionnement)
-6. [Guide d'installation](#guide-dinstallation)
-7. [Utilisation](#utilisation)
-8. [Données et visualisation](#données-et-visualisation)
-9. [Spécifications techniques](#spécifications-techniques)
-10. [Dépannage](#dépannage)
-11. [Limitations et améliorations futures](#limitations-et-améliorations-futures)
-
----
-
 ## Vue d'ensemble
 
 Le Système de Surveillance Thermique est une application IoT complète conçue pour monitorer en temps réel la température ambiante. Le système combine une carte Arduino équipée d'un capteur DHT11, d'indicateurs LED, d'une alarme sonore et d'une application Python pour l'enregistrement et la visualisation des données.
