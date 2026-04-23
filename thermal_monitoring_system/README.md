@@ -38,9 +38,3 @@ Le Système de Surveillance Thermique est une application IoT complète conçue 
 
 **Auteur** : Nadal NGAKI MUPATI  
 **Date de création** : 2026-04-23
-
----
-
-## Architecture du système
-
-### Schéma global
